@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Control Panel</title>
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+    <nav id="navbar">
+        <div class="nav-links">
+            <a href="./kn/index.html" data-page="home" class="active">Home</a>
+            <a href="#" data-page="about">About</a>
+            <a href="#" data-page="news">Latest News</a>
+            <a href="#" data-page="team">Team</a>
+            <a href="#" data-page="contact">Contact</a>
+        </div>
+        <div class="auth-links">
+            <div id="profileContainer" style="display: none;">
+                <button id="profileBtn" class="profile-btn">
+                    <span id="userInfo"></span>
+                    <span class="dropdown-arrow">▼</span>
+                </button>
+                <div id="profileDropdown" class="profile-dropdown">
+                    <a href="#" id="viewProfileBtn">View Profile</a>
+                    <a href="#" id="syncDataBtn">Sync Data</a>
+                    <a href="#" id="adminPanelBtn" style="display: none;">Admin Panel</a>
+                </div>
+            </div>
+            <a href="#" id="loginBtn">Login</a>
+            <a href="#" id="registerBtn">Register</a>
+        </div>
+    </nav>
+
+    <main id="mainContent">
+        <!-- Page content will be loaded here -->
+    </main>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <h2>Login</h2>
+            <form id="loginForm">
+                <input type="email" id="loginEmail" placeholder="Email" required>
+                <input type="password" id="loginPassword" placeholder="Password" required>
+                <button type="submit">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div id="registerModal" class="modal">
+        <div class="modal-content">
+            <h2>Register</h2>
+            <form id="registerForm">
+                <input type="email" id="registerEmail" placeholder="Email" required>
+                <p class="hint">Use email starting with 'admin' for administrator access</p>
+                <input type="password" id="registerPassword" placeholder="Password" required>
+                <button type="submit">Register</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Profile Modal -->
+    <div id="profileModal" class="modal">
+        <div class="modal-content">
+            <h2>Profile</h2>
+            <form id="profileForm">
+                <input type="email" id="profileEmail" readonly>
+                <input type="text" id="profileName" placeholder="Full Name">
+                <textarea id="profileBio" placeholder="Bio" rows="3"></textarea>
+                <button type="submit">Save Profile</button>
+              // In the profile template
+<button class="logout-button" id="profileLogoutBtn">
+    <svg viewBox="0 0 24 24" width="24" height="24">
+        <path fill="currentColor" d="M17 7l-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.58L17 17l5-5zM4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4V5z"/>
+    </svg>
+    Logout
+</button>
+
+            </form>
+        </div>
+    </div>
+
+    <!-- Admin Panel Modal -->
+    <div id="adminPanel" class="modal">
+        <div class="modal-content">
+            <h2>Admin Control Panel</h2>
+            <select id="pageSelector">
+                <option value="home">Home</option>
+                <option value="about">About</option>
+                <option value="news">Latest News</option>
+                <option value="team">Team</option>
+                <option value="contact">Contact</option>
+            </select>
+            <textarea id="pageContent" rows="10"></textarea>
+            <button id="saveContent">Save Changes</button>
+        </div>
+    </div>
+
+    <script type="module" src="/admin.js"></script>
+</body>
+</html>
